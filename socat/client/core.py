@@ -30,6 +30,7 @@ class ClientBase(ABC):
         name: str | None = None,
         flux: Quantity | None = None,
         flags: dict | None = None,
+        source_id: uuid.UUID | None = None,
     ) -> RegisteredFixedSource:
         """
         Create a new source in the catlaog.

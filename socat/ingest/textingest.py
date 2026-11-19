@@ -1,4 +1,5 @@
 import pickle
+import uuid
 from pathlib import Path
 
 import pandas as pd
@@ -42,8 +43,8 @@ def ingest_text_file(
                 "monitored": row["monitored"],
                 "pointing": False,
             },
+            source_id=uuid.UUID(row["source_id"]),
         )
-
         number_of_sources += 1
 
     return number_of_sources

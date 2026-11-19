@@ -77,6 +77,7 @@ class Client(ClientBase):
         name: str | None = None,
         flux: Quantity | None = None,
         flags: dict | None = None,
+        source_id: uuid.UUID | None = None,
     ) -> RegisteredFixedSource:
         if flux is not None:
             flux = flux.to_value("mJy")
@@ -85,6 +86,7 @@ class Client(ClientBase):
             flags = {}
 
         source = RegisteredFixedSourceTable(
+            source_id=source_id,
             ra_deg=position.ra.to_value("deg"),
             dec_deg=position.dec.to_value("deg"),
             name=name,
